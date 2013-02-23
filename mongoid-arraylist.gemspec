@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["ismail@zyelabs.net"]
   gem.description   = %q{Define methods for working with mongodb arrays in views}
   gem.summary       = %q{Lets you pass a string of items to your model, will split by ',' and save to mongodb as an array}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/ismaild/mongoid-arraylist"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

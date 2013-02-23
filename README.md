@@ -1,6 +1,8 @@
 # Mongoid::Arraylist
 
-TODO: Write a gem description
+mongoid-arraylist includes two methods on your model, that makes it really simple to deal with mongodb arrays. No need for custom form's or controller logic to deal with adding items to a mongodb array. 
+
+It defines getters and setters on your model for field_list. Given a comma seperated string, it will split the string and save each item to a mongodb array.
 
 ## Installation
 
@@ -18,7 +20,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Add: include Mongoid::ArrayList to your model
+2. Add: list_field <array_field_name>
+
+i.e
+
+class Post
+  include Mongoid::Document
+  include Mongoid::ArrayList
+
+  field :tags
+
+  list_field :tags
+end
 
 ## Contributing
 

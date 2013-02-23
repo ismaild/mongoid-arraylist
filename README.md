@@ -1,4 +1,4 @@
-# Mongoid::Arraylist
+# mongoid-arraylist
 
 mongoid-arraylist includes two methods on your model, that makes it really simple to deal with mongodb arrays. No need for custom form's or controller logic to deal with adding items to a mongodb array. 
 
@@ -19,20 +19,34 @@ Or install it yourself as:
     $ gem install mongoid-arraylist
 
 ## Usage
+  #app/models/post.rb
 
-1. Add: include Mongoid::ArrayList to your model
-2. Add: list_field <array_field_name>
+    require 'arraylist'
 
-i.e
+    class Post
+      include Mongoid::Document
+      include Mongoid::ArrayList
 
-class Post
-  include Mongoid::Document
-  include Mongoid::ArrayList
+      field :tags, type: Array, default: []
 
-  field :tags
+      list_field :tags
+    end
 
-  list_field :tags
-end
+    post = Post.new
+    post.tags_list = 'tag1, tag2, tag3'
+    => "tag1, tag2, tag3" 
+
+    post.tags
+    => ["Tag1", "Tag2", "Tag3"]   
+
+    post.tags_list
+    => "Tag1, Tag2, Tag3" 
+
+  In your view:
+
+    <%= f.label :tags_list %><br />
+    <%= f.text_field :tags_list %>
+
 
 ## Contributing
 

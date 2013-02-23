@@ -2,12 +2,12 @@ class Post
   include Mongoid::Document
   include Mongoid::ArrayList
 
-  field :tags
+  field :tags, type: Array, default: []
 
   list_field :tags
 end
 
-module MongoidList
+module Mongoid::ArrayList
   describe "list_field" do
     context "class methods" do
 

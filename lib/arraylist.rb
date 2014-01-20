@@ -7,7 +7,8 @@ module Mongoid
     module ClassMethods
       def list_field(field)
         define_method "#{field}_list" do
-          self.public_send(field).join(', ')
+          val = self.public_send(field)
+          val ? val.join(', ') : nil
         end
 
         define_method "#{field}_list=" do |arg|
